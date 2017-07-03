@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Camara PI
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-item no-padding>
+    <ion-label class="lbl-estado">Upload image:</ion-label>
+    <ion-icon name="camera" (click)="takePicture()" item-right></ion-icon>
+  </ion-item>
+
+  <ion-item no-padding  ng-show="team_stores.length > 0">
+
+    <div class="photos-container">
+      <ion-grid>
+        <ion-row>
+          <ion-col col-4 *ngFor="let photo of photos; let id = index">
+            <ion-card class="releative">
+              <img src="{{photo}}" />
+            </ion-card>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+    </div>
+
+  </ion-item>
+
+</ion-content>
