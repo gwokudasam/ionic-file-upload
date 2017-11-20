@@ -10,7 +10,7 @@ import { Transfer, FileUploadOptions, TransferObject } from '@ionic-native/trans
 })
 export class HomePage {
 
-  URL_UPLOAD: '';
+  URL_UPLOAD: 'http://192.168.12.194:8080/upload';
   photos: any;
 
   constructor(public navCtrl: NavController,
@@ -45,8 +45,9 @@ export class HomePage {
 
                 this.photos.push('data:image/jpeg;base64,' + imageData);
 
-                if(this.URL_UPLOAD != ''){
+                if(true){
 
+                  console.log("trueeeee");
                 const fileTransfer: TransferObject = this.transfer.create();
 
                 let myHeaders: Headers = new Headers;
@@ -61,7 +62,7 @@ export class HomePage {
 
                 fileTransfer.upload(imageData, this.URL_UPLOAD, options1)
                 .then((data) => {
-
+                  alert("upload success!");
                 }, (err) => {
                   alert("err: "+JSON.stringify(err));
                 });
@@ -92,7 +93,7 @@ export class HomePage {
 
               this.photos.push('data:image/jpeg;base64,' + imageData);
 
-              if(this.URL_UPLOAD != '') {
+              if(true) {
                 const fileTransfer: TransferObject = this.transfer.create();
 
                 let myHeaders: Headers = new Headers;
