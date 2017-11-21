@@ -23,6 +23,7 @@ export class HomePage {
 
   takePicture()
   {
+    console.log("taking pic");
     let actionSheet = this.actionsheetCtrl.create({
       title: 'Upload image',
       cssClass: 'action-sheets-basic-page',
@@ -30,16 +31,16 @@ export class HomePage {
         {
           text: 'From camera',
           handler: () => {
-
+            console.log("in handler");
             const options: CameraOptions = {
               mediaType: this.camera.MediaType.PICTURE, // PHOTOLIBRARY
-              quality: 80,
+              quality: 100,
               destinationType: this.camera.DestinationType.FILE_URI,
               sourceType: this.camera.PictureSourceType.CAMERA,
               allowEdit: true,
               encodingType: this.camera.EncodingType.JPEG,
               saveToPhotoAlbum: true
-            }
+            };
 
             this.camera.getPicture(options).then((imageData) => {
 
@@ -47,7 +48,7 @@ export class HomePage {
 
                 if(true){
 
-                  console.log("trueeeee");
+                console.log("trueeeee");
                 const fileTransfer: TransferObject = this.transfer.create();
 
                 let myHeaders: Headers = new Headers;
@@ -78,9 +79,9 @@ export class HomePage {
         {
           text: 'From galery',
           handler: () => {
-
+            console.log("Gallery handler");
             const options: CameraOptions = {
-              quality: 80,
+              quality: 100,
               destinationType: this.camera.DestinationType.FILE_URI,
               encodingType: this.camera.EncodingType.JPEG,
               mediaType: this.camera.MediaType.PICTURE, //
